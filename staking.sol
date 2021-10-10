@@ -361,17 +361,9 @@ contract Staking is Context, Ownable {
         stakeStartDate = _startDate;
     }
     
-    
     function changeStakeEndDate(uint _endDate) public onlyOwner {
         stakeEndDate = _endDate;
     }
-    
-    
-    
-    
-    
-    
-    
     
     function isStakeholder(address _address) public view returns(bool, uint256) {
         uint s = stakeholderIndex[_address]; // 1-based index
@@ -379,7 +371,6 @@ contract Staking is Context, Ownable {
         return (true, s - 1); // return 0-based index
     }
     
-
     function addStakeholder(address _stakeholder) internal {
         (bool _isStakeholder, ) = isStakeholder(_stakeholder);
         if (!_isStakeholder)
